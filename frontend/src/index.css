@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-navy-950 text-slate-200 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04';
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-charcoal-700;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-charcoal-600;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent/60 ring-offset-2 ring-offset-navy-950;
+  }
+}
+
+@layer components {
+  /* Surfaces ------------------------------------------------------------- */
+  .panel {
+    @apply rounded-xl border border-white/[0.07] bg-charcoal-850/70 shadow-panel backdrop-blur-sm;
+  }
+
+  .panel-header {
+    @apply flex items-center justify-between gap-4 border-b border-white/[0.07] px-5 py-3.5;
+  }
+
+  .panel-title {
+    @apply text-sm font-semibold tracking-tight text-slate-100;
+  }
+
+  .panel-subtitle {
+    @apply text-xs text-slate-400;
+  }
+
+  /* Navigation ----------------------------------------------------------- */
+  .nav-item {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-400
+           transition-colors duration-150 hover:bg-white/[0.05] hover:text-slate-100;
+  }
+
+  .nav-item-active {
+    @apply bg-accent/10 text-accent-bright hover:bg-accent/15 hover:text-accent-bright;
+  }
+
+  /* Buttons -------------------------------------------------------------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm
+           font-medium transition-all duration-150 disabled:cursor-not-allowed
+           disabled:opacity-45 disabled:saturate-0;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-navy-950 hover:bg-accent-bright active:scale-[0.985];
+  }
+
+  .btn-secondary {
+    @apply btn border border-white/10 bg-white/[0.04] text-slate-200
+           hover:border-white/20 hover:bg-white/[0.07];
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-400 hover:bg-white/[0.05] hover:text-slate-100;
+  }
+
+  .btn-danger {
+    @apply btn border border-red-500/30 bg-red-500/10 text-red-300 hover:bg-red-500/20;
+  }
+
+  /* Form controls -------------------------------------------------------- */
+  .input {
+    @apply w-full rounded-lg border border-white/10 bg-navy-900/70 px-3.5 py-2.5 text-sm
+           text-slate-100 placeholder:text-slate-500 transition-colors
+           focus:border-accent/50 focus:bg-navy-900;
+  }
+
+  .select {
+    @apply input cursor-pointer appearance-none bg-[length:16px] bg-[right_0.75rem_center]
+           bg-no-repeat pr-10;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wide text-slate-400;
+  }
+
+  /* Status --------------------------------------------------------------- */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-md px-2 py-0.5 text-[11px]
+           font-medium leading-5;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded border border-white/10 bg-white/[0.04]
+           px-1.5 py-0.5 font-mono text-[11px] text-slate-400;
+  }
+
+  /* Tables --------------------------------------------------------------- */
+  .data-table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+
+  .data-table th {
+    @apply border-b border-white/[0.07] px-4 py-2.5 text-xs font-medium uppercase
+           tracking-wide text-slate-500;
+  }
+
+  .data-table td {
+    @apply border-b border-white/[0.04] px-4 py-3 align-top text-slate-300;
+  }
+
+  .data-table tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .data-table tbody tr {
+    @apply transition-colors hover:bg-white/[0.025];
+  }
+
+  /* Utilities ------------------------------------------------------------ */
+  .mono {
+    @apply font-mono text-[12.5px];
+  }
+
+  .scroll-area {
+    @apply overflow-y-auto overscroll-contain;
+  }
+
+  .divider {
+    @apply my-4 h-px w-full bg-white/[0.07];
+  }
+}

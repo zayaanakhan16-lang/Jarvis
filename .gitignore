@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Databases (local development)
+*.db
+*.sqlite
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+*.log
